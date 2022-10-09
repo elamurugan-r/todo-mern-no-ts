@@ -14,7 +14,7 @@ export const Todo = ({
   const isEmptyText = regex.test(todo.text);
   useEffect(() => {
     console.log("Todo mounted");
-  },[todo])
+  }, [todo]);
   return (
     <li className="todo-item" key={todo._id}>
       <div className="todo-item-container">
@@ -34,7 +34,7 @@ export const Todo = ({
         className={`todo-text  ${isEmptyText ? "focus" : ""} ${
           todo.complete ? "completed" : ""
         }`}
-        ref={isEmptyText ? writeRef : undefined}
+        ref={writeRef}
         onChange={(e) => handleOnChange(e, index)}
         autoFocus={isEmptyText}
         onKeyDown={(e) => handleSubmitText(e, todo)}

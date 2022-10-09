@@ -12,7 +12,11 @@ const App = () => {
   const [todos, setTodos, req] = useExpress();
 
   const handleClick = (todo) => {
-    req(ENDPOINTS.UPDATE(todo._id), "PUT", {...todo, complete:!todo.complete, timestamp: Date.now()});
+    req(ENDPOINTS.UPDATE(todo._id), "PUT", {
+      ...todo,
+      complete: !todo.complete,
+      timestamp: Date.now(),
+    });
   };
   const handleOnChange = (e, i) => {
     setTodos((todos) =>
@@ -53,14 +57,14 @@ const App = () => {
         {todos.map((todo, index) => {
           return (
             <Todo
-            key={index}
+              key={index}
               todo={todo}
               handleOnChange={handleOnChange}
               handleClick={handleClick}
               handleSubmitText={handleSubmitText}
               handleClose={handleClose}
               index={index}
-              writeRef={writeRef}
+              writeRef={todos.length - 1 === index ? writeRef : undefined}
             />
           );
         })}
