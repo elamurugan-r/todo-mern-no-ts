@@ -46,7 +46,6 @@ const App = () => {
 
   useEffect(() => {
     req(ENDPOINTS.GET, "GET", todos);
-    console.log("===");
   }, []);
 
   return (
@@ -55,6 +54,7 @@ const App = () => {
       <h2 className="subtitle">Your Tasks</h2>
       <ul className="todos-container">
         {todos.map((todo, index) => {
+          const isLast = todos.length - 1 === index;
           return (
             <Todo
               key={index}
@@ -64,7 +64,8 @@ const App = () => {
               handleSubmitText={handleSubmitText}
               handleClose={handleClose}
               index={index}
-              writeRef={todos.length - 1 === index ? writeRef : undefined}
+              textRef={isLast ? writeRef : undefined}
+              isLast={isLast}
             />
           );
         })}

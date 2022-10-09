@@ -42,7 +42,7 @@ app.get("/todos/complete/:id", async(req,res) => {
   console.log("2")
   filteredData.complete = !filteredData.complete;
   filteredData.save();
-  res.json(await Todo.find());
+  res.json(filteredData);
 })
 
 app.put("/todos/update/:id", async (req, res) => {
