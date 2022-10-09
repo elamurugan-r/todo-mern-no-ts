@@ -1,0 +1,6 @@
+.vscode
+api/node_modules
+client/node_modules
+client/build
+client/yarn-debug.log*
+client/yarn-error.log*
