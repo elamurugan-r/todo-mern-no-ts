@@ -13,7 +13,7 @@
   },
   "scripts": {
     "dev": "REACT_APP_END_POINT=http://localhost:3001 react-scripts start",
-    "prod": "react-scripts start",
+    "prod": "REACT_APP_END_POINT=https://todo-no-ts.netlify.app react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

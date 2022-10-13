@@ -8,16 +8,13 @@ const Todo = require("./models/Todos");
 const app = express();
 app.use(express.json());
 app.use(cors());
-
+console.log("PROCESS.ENV:", process.env);
 // process.env.DB_connection should be provided as env in Heroku
 mongoose
-  .connect(
-    process.env.DB_CONNECTION || "mongodb://127.0.0.1:27017/todo-mern-no-ts",
-    {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    }
-  )
+  .connect(process.env.DB_CONNECTION, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
   .then(() => console.log("Connected to DB"))
   .catch((err) => console.log(err));
 

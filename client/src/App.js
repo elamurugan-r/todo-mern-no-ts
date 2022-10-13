@@ -46,6 +46,7 @@ const App = () => {
 
   useEffect(() => {
     req(ENDPOINTS.GET, "GET", todos);
+    // eslint-disable-next-line
   }, []);
 
   return (
