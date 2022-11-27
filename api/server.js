@@ -10,6 +10,9 @@ app.use(express.json());
 app.use(cors());
 console.log("PROCESS.ENV:", process.env);
 // process.env.DB_connection should be provided as env in Heroku
+
+// Heroku env var:
+// DB_CONNECTION:mongodb+srv://Elamurugan_Ravikumar:todonots@clustertodonots.osylvhn.mongodb.net/test
 mongoose
   .connect(process.env.DB_CONNECTION, {
     useNewUrlParser: true,
